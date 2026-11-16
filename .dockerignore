@@ -1,9 +1,10 @@
-# Never send local credentials or generated encryption material to Docker build context.
+﻿# Never send local credentials or generated encryption material to Docker build context.
 **/.env
 **/.env.*
 !**/.env.example
 **/.dev_secrets*
-**/keyring*
+**/keyring
+!**/keyring.py
 **/*.key
 **/.whole_db_encryption_key
 
