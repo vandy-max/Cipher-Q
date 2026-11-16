@@ -1,4 +1,4 @@
-# CipherQ backend container. Application workflows remain in the existing Python code.
+﻿# CipherQ backend container. Application workflows remain in the existing Python code.
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -22,4 +22,4 @@ COPY backend/ ./
 RUN touch .dev_secrets.json && chmod 600 .dev_secrets.json
 
 EXPOSE 8000
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
