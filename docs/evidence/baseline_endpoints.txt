@@ -1,0 +1,54 @@
+GET    /api/audit/logs                                         AUTH    ADMIN,USER_LEVEL_2
+GET    /api/audit/verify                                       AUTH    ADMIN,USER_LEVEL_2
+POST   /api/auth/login                                         PUBLIC  
+POST   /api/auth/register                                      PUBLIC  
+GET    /api/authorization/devices/{device_id}                  AUTH    
+POST   /api/authorization/devices/{device_id}/revoke           AUTH    ADMIN
+GET    /api/authorization/devices/{device_id}/trust            AUTH    
+POST   /api/authorization/devices/{device_id}/unrevoke         AUTH    ADMIN
+GET    /api/authorization/sessions/{session_id}                AUTH    
+POST   /api/authorization/sessions/{session_id}/reauthenticate AUTH    
+POST   /api/authorization/sessions/{session_id}/refresh        AUTH    
+POST   /api/authorization/sessions/{session_id}/revoke         AUTH    ADMIN
+POST   /api/authorization/state                                AUTH    
+POST   /api/decrypt                                            AUTH    
+POST   /api/encrypt                                            AUTH    
+POST   /api/face/enroll                                        AUTH    
+GET    /api/face/status                                        AUTH    
+POST   /api/face/verify                                        AUTH    
+GET    /api/health                                             PUBLIC  
+GET    /api/intent                                             AUTH    
+POST   /api/intent                                             AUTH    
+GET    /api/intent/by-hash/{intent_hash}                       AUTH    
+POST   /api/intent/validate                                    AUTH    
+POST   /api/intent/{intent_id}/transition                      AUTH    
+POST   /api/location/check                                     AUTH    
+DELETE /api/location/trust                                     AUTH    
+GET    /api/location/trust                                     AUTH    
+POST   /api/location/trust                                     AUTH    
+GET    /api/monitoring/by-session/{session_id}                 AUTH    
+POST   /api/monitoring/heartbeat                               AUTH    
+POST   /api/monitoring/start                                   AUTH    
+GET    /api/monitoring/{monitoring_session_id}                 AUTH    
+GET    /api/monitoring/{monitoring_session_id}/events          AUTH    
+POST   /api/monitoring/{monitoring_session_id}/stop            AUTH    
+GET    /api/policies                                           AUTH    ADMIN
+POST   /api/policies                                           AUTH    ADMIN
+DELETE /api/policies/{policy_id}                               AUTH    ADMIN
+PUT    /api/policies/{policy_id}                               AUTH    ADMIN
+POST   /api/quantum/generate-key                               AUTH    
+GET    /api/quantum/info                                       PUBLIC  
+GET    /api/reauth-requests                                    AUTH    ADMIN
+POST   /api/reauth-requests                                    AUTH    
+GET    /api/reauth-requests/mine                               AUTH    
+POST   /api/reauth-requests/{request_id}/approve               AUTH    ADMIN
+POST   /api/reauth-requests/{request_id}/reject                AUTH    ADMIN
+POST   /api/risk/assess                                        AUTH    
+POST   /api/security/ask                                       AUTH    
+POST   /api/security/assess                                    AUTH    
+GET    /api/security/context                                   AUTH    
+GET    /api/security/incidents                                 AUTH    ADMIN
+POST   /api/security/incidents/{incident_id}/resolve           AUTH    ADMIN
+GET    /api/security/risk-overview                             AUTH    ADMIN
+GET    /api/users                                              AUTH    ADMIN
+PUT    /api/users/{user_id}/role                               AUTH    ADMIN

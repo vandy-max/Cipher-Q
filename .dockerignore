@@ -1,0 +1,18 @@
+# Never send local credentials or generated encryption material to Docker build context.
+**/.env
+**/.env.*
+!**/.env.example
+**/.dev_secrets*
+**/keyring*
+**/*.key
+**/.whole_db_encryption_key
+
+# Local build/runtime artifacts
+**/node_modules
+**/.venv
+**/venv
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.git
+**/dist

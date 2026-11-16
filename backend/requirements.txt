@@ -1,0 +1,15 @@
+﻿# Runtime dependencies (exact pins; every pin was chosen to clear the pip-audit advisories recorded in
+# docs/evidence/pip_audit_baseline.txt -- see docs/evidence/pip_audit_final.txt).
+# Unused v17 dependencies removed: passlib, pydantic-settings, python-multipart.
+fastapi==0.143.0
+starlette==1.7.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pymongo==4.18.2
+pyjwt==2.15.0
+cryptography==50.0.2
+qiskit==2.5.2
+qiskit-aer==0.17.2
+numpy==2.4.6
+python-dotenv==1.2.2
+

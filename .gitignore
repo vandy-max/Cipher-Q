@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Encryption keys
+*.key
+.whole_db_encryption_key
+.dev_secrets*
+
+# Python generated files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Frontend build files
+dist/
+.vite/
+
+# Logs / caches
+*.log
+.cache/
+.pytest_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Private certificates and credentials
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+
+# Database backups and local database files
+*.dump
+*.bson
+*.sqlite
+*.sqlite3
+
+# Test and coverage outputs
+.coverage
+htmlcov/
+coverage/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Local deployment secrets
+.env.local
+.env.production.local
+secrets/

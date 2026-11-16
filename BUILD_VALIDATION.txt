@@ -1,0 +1,15 @@
+CipherQ Simple Secure Messaging build validation
+
+Passed:
+- Python compileall for backend source.
+- Direct-message AES-GCM/key-wrapping checks: sender and recipient can unwrap the same per-message DEK; a third party cannot; AAD substitution fails authentication.
+- Direct-message request-model checks: valid text and file payloads accepted; incomplete payloads rejected.
+- JavaScript syntax checks for frontend API and share payload utility.
+- JSX syntax transpilation check for ShareMessagesPage.jsx.
+- ZIP archive integrity check.
+
+Not completed in this build environment:
+- Full FastAPI + MongoDB integration tests (PyMongo is not installed in this isolated build environment and package registry access is unavailable).
+- Vite production build and full frontend test suite (frontend node_modules are not installed; existing tests also require Vitest, which is not present in the package install available here).
+
+Before using against real data, run the backend tests and `npm ci`, `npm run build`, and `npm test` on the target Windows machine with its configured MongoDB and original keyring. Do not generate replacement keys for an existing encrypted database.

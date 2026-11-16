@@ -1,0 +1,90 @@
+{
+  "B01_health": {
+    "status": "ok",
+    "database": "baseline_poc",
+    "application_encryption": true
+  },
+  "B02_security_headers": {
+    "strict-transport-security": null,
+    "x-content-type-options": null,
+    "x-frame-options": null,
+    "content-security-policy": null
+  },
+  "B03_docs_unauth": 200,
+  "B04_register_status_and_roles": [
+    201,
+    201,
+    201,
+    "USER_LEVEL_2"
+  ],
+  "B05_jwt_claims": [
+    "exp",
+    "role",
+    "sub",
+    "username"
+  ],
+  "B06a_admin_list_users": 200,
+  "B06b_downgraded_admin_old_token_still_lists_users": 200,
+  "B06c_deleted_user_old_token_still_valid": 200,
+  "B07a_tampered_token": 401,
+  "B07b_alg_none": 401,
+  "B08_bruteforce_40_wrong_logins_status_set": [
+    401
+  ],
+  "B09a_quantum_key_in_response": {
+    "has_quantum_key_hex": true,
+    "len": 64
+  },
+  "B09b_4000_qubits": {
+    "status": 200,
+    "seconds": 0.9
+  },
+  "B09c_prob_2": 400,
+  "B10a_enroll": 204,
+  "B10b_verify_returns_distance": {
+    "verified": true,
+    "confidence": 0.9057,
+    "distance": 0.1131
+  },
+  "B10c_nan_descriptor": {
+    "status": 500,
+    "body": "Internal Server Error"
+  },
+  "B10d_enroll_replace_without_reauth": [
+    204,
+    204
+  ],
+  "B11_1MB_username": 201,
+  "B12a_refresh_creates_session": 200,
+  "B12b_monitor_start_self_asserted_conf": 200,
+  "B12c_forged_heartbeat": {
+    "code": 200,
+    "status": "active",
+    "liveness": true
+  },
+  "B13_intent_sender_spoof_accepted": {
+    "code": 201,
+    "state": "draft"
+  },
+  "B14a_approve_by_self_registered_L2": {
+    "code": 200,
+    "state": "approved"
+  },
+  "B14b_encrypt": {
+    "code": 201
+  },
+  "B14c_decrypt": {
+    "code": 200,
+    "plain": "secret-data"
+  },
+  "B18_audit_tail_truncation": {
+    "chain_valid_before": true,
+    "verify_valid_after_deleting_last_entry": true
+  },
+  "B17_audit_concurrent_writes": {
+    "valid": false,
+    "reason": "entry 52: prev_log_hash does not match the previous entry's current_log_hash",
+    "lost_writes_duplicate_key_errors": 20
+  },
+  "B19_audit_logs_as_plain_user": 403
+}

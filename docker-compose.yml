@@ -1,0 +1,49 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    command: ["mongod", "--bind_ip_all"]
+    volumes:
+      - cipherq_mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_ENV: development
+      MONGODB_URI: mongodb://mongo:27017
+      MONGODB_DATABASE: cipherq
+      # Keep the current application's development-only secret generation.
+      # For real deployments, use APP_ENV=production and inject managed secrets.
+    volumes:
+      - cipherq_dev_secrets:/app/backend/.dev_secrets.json
+    depends_on:
+      mongo:
+        condition: service_healthy
+    expose:
+      - "8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  # MongoDB stores monitoring session summaries/events and the rest of CipherQ data.
+  # This named volume survives container recreation and normal `docker compose down`.
+  cipherq_mongodb_data:
+  # Persist the backend's generated development encryption/JWT secrets.
+  cipherq_dev_secrets:

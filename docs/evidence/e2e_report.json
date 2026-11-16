@@ -1,0 +1,358 @@
+{
+ "base": "http://127.0.0.1:8000",
+ "passed": 70,
+ "total": 70,
+ "steps": [
+  {
+   "step": "admin login",
+   "ok": true,
+   "detail": "{\"token\":\"<jwt-redacted>\",\"user_id\":1,\"username\":\"e2eadmin\",\"role\":\"ADMIN\",\"expires_at\":\"2026-10-14T12:09:05.893287Z\"}"
+  },
+  {
+   "step": "self-registration cannot create an admin",
+   "ok": true,
+   "detail": "201 USER_LEVEL_1"
+  },
+  {
+   "step": "[A] registers",
+   "ok": true,
+   "detail": "{\"token\":\"<jwt-redacted>\",\"user_id\":3,\"username\":\"analystea7d3d\",\"role\":\"USER_LEVEL_1\",\"expires_at\":\"2026-10-14T12:09:06.419762Z\"}"
+  },
+  {
+   "step": "[A] server-issued session",
+   "ok": true,
+   "detail": "{\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"revoked\":false,\"expires_at\":\"2026-10-14T12:39:06.527738Z\",\"version\":1}"
+  },
+  {
+   "step": "[A] admin opens evidence case and assigns analyst",
+   "ok": true,
+   "detail": "{\"ref\":\"CASE-753722\",\"status\":\"OPEN\",\"title\":\"Card-testing fraud\",\"classification_cap\":\"RESTRICTED\",\"allowed_resources\":[\"vault:customer-records\"],\"assigned_user_ids\":[3],\"revision\":1,\"provider\":\"local-case-table (administrator-maintained; not an external system)\"}"
+  },
+  {
+   "step": "[A] face enrolled (password re-entry)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] step-up",
+   "ok": true,
+   "detail": "{\"verified\":true,\"grant_id\":\"d09a1ddc8a7a642d594e9656\",\"expires_ts\":1791978246,\"liveness\":\"NOT_ESTABLISHED\",\"confidence\":0.9889}"
+  },
+  {
+   "step": "[A] key session established",
+   "ok": true,
+   "detail": "{\"key_session_id\":\"ks_nncge8Fn_Qc8QaztoGJp0Ft0\",\"status\":\"ACTIVE\",\"qber\":0.0,\"sifted_bits\":535,\"effective_entropy_bits\":256,\"created_ts\":1791977947,\"expires_ts\":1791981547,\"generation\":1,\"simulation\":true,\"notice\":\"BB84 is simulated on a classical computer; this is not physical QKD.\"}"
+  },
+  {
+   "step": "[A] no key material in response; simulation flagged",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] monitoring starts after step-up",
+   "ok": true,
+   "detail": "{\"monitoring_session_id\":\"6890f1a863364f4b9ab3b948194a3145\",\"heartbeat_nonce\":\"d880eb507a6e61ff118cef98bc582554\",\"current_user\":3,\"current_device\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"current_session\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"status\":\"active\",\"face_present\":true,\"face_match_confidence\":0.9889,\"liveness\":true,\"current_intent\":null,\"current_lifecycle\":null,\"current_risk\":\"low\",\"risk_score\":0.0,\"current_authorization_state\":\"valid\",\"authorization_state_hash\":\"39447ef4b07097d27a65e62510848cc13ae096d2bf0539cb796b27446feddbbe\",\"consecutive_face_failures\":0,\"warnings\":[],\"expression_hint\":null,\"timestamp\":\"2026-10-14T11:39:07.097637Z\",\"security_state\":\"normal\",\"identity_state\":\"identity_confirmed\",\"reason_code\":\"identity_confirmed\",\"reason\":\"Face descriptor matched server-side (descriptor similarity only; liveness is NOT established), device/session authorization valid, and monitoring connection healthy.\"}"
+  },
+  {
+   "step": "[A] session creation requires auth",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] enrolment replacement refused without password/step-up",
+   "ok": true,
+   "detail": "{\"detail\":\"re-authentication failed\"}"
+  },
+  {
+   "step": "[A] grant never claims liveness",
+   "ok": true,
+   "detail": "{\"verified\":true,\"grant_id\":\"24efec039fdab203da016d83\",\"expires_ts\":1791978247,\"liveness\":\"NOT_ESTABLISHED\",\"confidence\":0.9896}"
+  },
+  {
+   "step": "[A] challenge is single-use",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] step-up",
+   "ok": true,
+   "detail": "{\"verified\":true,\"grant_id\":\"65722ee8b06cd8125464bcd8\",\"expires_ts\":1791978247,\"liveness\":\"NOT_ESTABLISHED\",\"confidence\":0.9889}"
+  },
+  {
+   "step": "[A] heartbeat with enrolled face accepted",
+   "ok": true,
+   "detail": "{\"monitoring_session_id\":\"6890f1a863364f4b9ab3b948194a3145\",\"heartbeat_nonce\":\"e3bdcf48ec0b2c2941ef0d27df36cb35\",\"current_user\":3,\"current_device\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"current_session\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"status\":\"active\",\"face_present\":true,\"face_match_confidence\":0.9886,\"liveness\":true,\"current_intent\":null,\"current_lifecycle\":null,\"current_risk\":\"low\",\"risk_score\":0.0,\"current_authorization_state\":\"valid\",\"authorization_state_hash\":\"39447ef4b07097d27a65e62510848cc13ae096d2bf0539cb796b27446feddbbe\",\"consecutive_face_failures\":0,\"warnings\":[],\"expression_hint\":null,\"timestamp\":\"2026-10-14T11:39:07.504777Z\",\"security_state\":\"normal\",\"identity_state\":\"identity_confirmed\",\"reason_code\":\"identity_confirmed\",\"reason\":\"Face descriptor matched server-side (descriptor similarity only; liveness is NOT established), device/session authorization valid, and monitoring connection healthy.\"}"
+  },
+  {
+   "step": "[A] heartbeat nonce rotates",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] replayed heartbeat nonce rejected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] intent created",
+   "ok": true,
+   "detail": "{\"intent_id\":1,\"version\":1,\"status\":\"DRAFT\",\"uses\":0,\"integrity_ok\":true,\"body\":{\"schema_version\":2,\"intent_id\":1,\"version\":1,\"owner_user_id\":3,\"sender\":\"analystea7d3d\",\"purpose_code\":\"CASE_INVESTIGATION\",\"purpose_statement\":\"Investigate suspected card-testing fraud for the case\",\"business_reference\":\"CASE-753722\",\"resource\":\"vault:customer-records\",\"operations\":[\"decrypt\",\"encrypt\"],\"data_scope\":{\"classification\":\"CONFIDENTIAL\",\"max_bytes\":4096,\"max_uses\":8},\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"valid_from\":\"2026-10-14T11:38:07Z\",\"valid_until\":\"2026-10-14T13:39:07Z\",\"evidence_refs\":[{\"kind\":\"CASE\",\"ref\":\"CASE-753722\"}],\"required_approvals\":1},\"body_hash\":\"349523bb3227b3b148181c690f800852410909ba8c941510e30c993ff585b8db\",\"approvals\":[],\"required_approvals\":1,\"owner_user_id\":3}"
+  },
+  {
+   "step": "[A] intent validated -> pending approval",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] unapproved intent cannot obtain a PERMIT",
+   "ok": true,
+   "detail": "[{\"code\": \"INTENT_NOT_APPROVED\", \"severity\": \"REQUIRES\", \"detail\": \"intent is pending_approval\", \"requires\": \"APPROVAL\"}, {\"code\": \"RISK_LOW\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[A] requester cannot approve own intent",
+   "ok": true,
+   "detail": "{\"detail\":\"FORBIDDEN\"}"
+  },
+  {
+   "step": "[A] admin approves",
+   "ok": true,
+   "detail": "{\"intent_id\":1,\"version\":1,\"status\":\"APPROVED\",\"uses\":0,\"integrity_ok\":true,\"body\":{\"schema_version\":2,\"intent_id\":1,\"version\":1,\"owner_user_id\":3,\"sender\":\"analystea7d3d\",\"purpose_code\":\"CASE_INVESTIGATION\",\"purpose_statement\":\"Investigate suspected card-testing fraud for the case\",\"business_reference\":\"CASE-753722\",\"resource\":\"vault:customer-records\",\"operations\":[\"decrypt\",\"encrypt\"],\"data_scope\":{\"classification\":\"CONFIDENTIAL\",\"max_bytes\":4096,\"max_uses\":8},\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"valid_from\":\"2026-10-14T11:38:07Z\",\"valid_until\":\"2026-10-14T13:39:07Z\",\"evidence_refs\":[{\"kind\":\"CASE\",\"ref\":\"CASE-753722\"}],\"required_approvals\":1},\"body_hash\":\"349523bb3227b3b148181c690f800852410909ba8c941510e30c993ff585b8db\",\"approvals\":[{\"approver_id\":1,\"verdict\":\"APPROVE\",\"at\":1791977947}],\"required_approvals\":1,\"owner_user_id\":3}"
+  },
+  {
+   "step": "[A] intent APPROVED",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] decision PERMIT",
+   "ok": true,
+   "detail": "{\"decision_id\": \"dec_ac07f10c4ead4ddca990df33e7152a91\", \"outcome\": \"PERMIT\", \"reasons\": [{\"code\": \"RISK_LOW\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}], \"intent_id\": 1, \"intent_version\": 1, \"operation\": \"encrypt\", \"resource\": \"vault:customer-records\", \"policy_version\": \"cipherq-policy-2026.10.1+b7339d5a8562\", \"issued_ts\": 1791977947, \"expires_ts\": 1791978247, \"context_id\": \"ctx_38450cba7fda4e7d80c3c4b03165fe38\", \"next\": null}"
+  },
+  {
+   "step": "[A] encrypt with authorization-bound context",
+   "ok": true,
+   "detail": "{\"record_id\":\"rec_c6e878a5c2064ff5aec5e2113b6dd016\",\"resource\":\"vault:customer-records\",\"classification\":\"CONFIDENTIAL\",\"size\":41,\"intent_id\":1,\"key_session_id\":\"ks_nncge8Fn_Qc8QaztoGJp0Ft0\",\"schema\":3,\"created_ts\":1791977947,\"decision_id\":\"dec_ac07f10c4ead4ddca990df33e7152a91\",\"ciphertext_preview_b64\":\"09Hpr58/+CN4c30BaEAW9jom0FuxIpYhubeZljc4yYQ=\"}"
+  },
+  {
+   "step": "[A] context replay rejected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] decrypt round-trips",
+   "ok": true,
+   "detail": "{\"record_id\":\"rec_c6e878a5c2064ff5aec5e2113b6dd016\",\"plaintext_base64\":\"UEFOIGVuZGluZyA0MjQyOyBjYXNlIG5vdGVzOiBjb25maWRlbnRpYWw=\"}"
+  },
+  {
+   "step": "[A] imposter probes end the active monitoring state",
+   "ok": true,
+   "detail": "reauth_required"
+  },
+  {
+   "step": "[A] operations blocked after monitoring failure",
+   "ok": true,
+   "detail": "[{\"code\": \"MONITORING_REAUTH_REQUIRED\", \"severity\": \"REQUIRES\", \"detail\": \"fresh re-authentication required\", \"requires\": \"STEP_UP\"}, {\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[A] admin revokes session",
+   "ok": true,
+   "detail": "{\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"revoked\":true,\"expires_at\":\"2026-10-14T12:39:06.527000Z\",\"version\":1}"
+  },
+  {
+   "step": "[A] revoked session cannot obtain PERMIT",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] user cannot self-restore a revoked session",
+   "ok": true,
+   "detail": "{\"detail\":\"session is revoked; an administrator must approve an access request before face re-authentication\"}"
+  },
+  {
+   "step": "[A] user files reauthorization request",
+   "ok": true,
+   "detail": "{\"request_id\":1,\"user_id\":3,\"username\":\"analystea7d3d\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"message\":\"e2e: legitimate analyst, please restore\",\"status\":\"pending\",\"created_at\":\"2026-10-14T11:39:09.111328Z\",\"resolved_by\":null,\"resolved_by_username\":null,\"resolved_at\":null,\"resolution_note\":null}"
+  },
+  {
+   "step": "[A] admin approves the request",
+   "ok": true,
+   "detail": "{\"request_id\":1,\"user_id\":3,\"username\":\"analystea7d3d\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"message\":\"e2e: legitimate analyst, please restore\",\"status\":\"approved\",\"created_at\":\"2026-10-14T11:39:09.111000Z\",\"resolved_by\":1,\"resolved_by_username\":\"e2eadmin\",\"resolved_at\":\"2026-10-14T11:39:09.133669Z\",\"resolution_note\":\"verified out of band\"}"
+  },
+  {
+   "step": "[A] approved reauthentication restores the session (challenge-bound)",
+   "ok": true,
+   "detail": "{\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"revoked\":false,\"expires_at\":\"2026-10-14T12:39:09.211741Z\",\"version\":2}"
+  },
+  {
+   "step": "[A] step-up",
+   "ok": true,
+   "detail": "{\"verified\":true,\"grant_id\":\"9e9c98464a3b2e006d903f01\",\"expires_ts\":1791978249,\"liveness\":\"NOT_ESTABLISHED\",\"confidence\":0.9883}"
+  },
+  {
+   "step": "[A] monitoring restarted",
+   "ok": true,
+   "detail": "{\"monitoring_session_id\":\"8b701b327ccb4e47811c42245b094bc4\",\"heartbeat_nonce\":\"4178b49b0413bafb8678be74699d21b9\",\"current_user\":3,\"current_device\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"current_session\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"status\":\"active\",\"face_present\":true,\"face_match_confidence\":0.9889,\"liveness\":true,\"current_intent\":null,\"current_lifecycle\":null,\"current_risk\":\"low\",\"risk_score\":0.0,\"current_authorization_state\":\"valid\",\"authorization_state_hash\":\"60d28a7a20e1b1271ef2e1f3c623324ba1bab698f7d91e926708644863919e7c\",\"consecutive_face_failures\":0,\"warnings\":[],\"expression_hint\":null,\"timestamp\":\"2026-10-14T11:39:09.362361Z\",\"security_state\":\"normal\",\"identity_state\":\"identity_confirmed\",\"reason_code\":\"identity_confirmed\",\"reason\":\"Face descriptor matched server-side (descriptor similarity only; liveness is NOT established), device/session authorization valid, and monitoring connection healthy.\"}"
+  },
+  {
+   "step": "[A] PERMIT again after reauthorization",
+   "ok": true,
+   "detail": "[{\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[A] encrypt after reauthorization",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] intent revoked",
+   "ok": true,
+   "detail": "{\"intent_id\":1,\"version\":1,\"status\":\"REVOKED\",\"uses\":3,\"integrity_ok\":true,\"body\":{\"schema_version\":2,\"intent_id\":1,\"version\":1,\"owner_user_id\":3,\"sender\":\"analystea7d3d\",\"purpose_code\":\"CASE_INVESTIGATION\",\"purpose_statement\":\"Investigate suspected card-testing fraud for the case\",\"business_reference\":\"CASE-753722\",\"resource\":\"vault:customer-records\",\"operations\":[\"decrypt\",\"encrypt\"],\"data_scope\":{\"classification\":\"CONFIDENTIAL\",\"max_bytes\":4096,\"max_uses\":8},\"session_id\":\"sess_a10dcc5edf7c6547c1c1f9d79889fedd\",\"device_id\":\"dev_d10cec358acc8a36f69a99d5266c6f8a\",\"valid_from\":\"2026-10-14T11:38:07Z\",\"valid_until\":\"2026-10-14T13:39:07Z\",\"evidence_refs\":[{\"kind\":\"CASE\",\"ref\":\"CASE-753722\"}],\"required_approvals\":1},\"body_hash\":\"349523bb3227b3b148181c690f800852410909ba8c941510e30c993ff585b8db\",\"approvals\":[{\"approver_id\":1,\"verdict\":\"APPROVE\",\"at\":1791977947}],\"required_approvals\":1,\"owner_user_id\":3}"
+  },
+  {
+   "step": "[A] revoked intent denied",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[A] key session revoked (key destroyed)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] registers",
+   "ok": true,
+   "detail": "{\"token\":\"<jwt-redacted>\",\"user_id\":4,\"username\":\"analyst3c0250\",\"role\":\"USER_LEVEL_1\",\"expires_at\":\"2026-10-14T12:09:10.033603Z\"}"
+  },
+  {
+   "step": "[B] server-issued session",
+   "ok": true,
+   "detail": "{\"session_id\":\"sess_7d94499ad3e639cbedc6afcd1fc7184a\",\"device_id\":\"dev_b4e59dc92fec9c0dbce1a4a9f9d9cdfa\",\"revoked\":false,\"expires_at\":\"2026-10-14T12:39:10.149476Z\",\"version\":1}"
+  },
+  {
+   "step": "[B] admin opens evidence case and assigns analyst",
+   "ok": true,
+   "detail": "{\"ref\":\"CASE-623224\",\"status\":\"OPEN\",\"title\":\"Card-testing fraud\",\"classification_cap\":\"RESTRICTED\",\"allowed_resources\":[\"vault:customer-records\"],\"assigned_user_ids\":[4],\"revision\":1,\"provider\":\"local-case-table (administrator-maintained; not an external system)\"}"
+  },
+  {
+   "step": "[B] face enrolled (password re-entry)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] step-up",
+   "ok": true,
+   "detail": "{\"verified\":true,\"grant_id\":\"12e01491f872c6a6ce478e1b\",\"expires_ts\":1791978250,\"liveness\":\"NOT_ESTABLISHED\",\"confidence\":0.9902}"
+  },
+  {
+   "step": "[B] key session established",
+   "ok": true,
+   "detail": "{\"key_session_id\":\"ks_Y3qDkGRLCg07Ixl8QS9Pa8cz\",\"status\":\"ACTIVE\",\"qber\":0.0,\"sifted_bits\":509,\"effective_entropy_bits\":256,\"created_ts\":1791977950,\"expires_ts\":1791981550,\"generation\":1,\"simulation\":true,\"notice\":\"BB84 is simulated on a classical computer; this is not physical QKD.\"}"
+  },
+  {
+   "step": "[B] no key material in response; simulation flagged",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] monitoring starts after step-up",
+   "ok": true,
+   "detail": "{\"monitoring_session_id\":\"3d75c3b989e149b38de55274828cb8f9\",\"heartbeat_nonce\":\"e702bd33fd656284331b267a1fd1c3ee\",\"current_user\":4,\"current_device\":\"dev_b4e59dc92fec9c0dbce1a4a9f9d9cdfa\",\"current_session\":\"sess_7d94499ad3e639cbedc6afcd1fc7184a\",\"status\":\"active\",\"face_present\":true,\"face_match_confidence\":0.9902,\"liveness\":true,\"current_intent\":null,\"current_lifecycle\":null,\"current_risk\":\"low\",\"risk_score\":0.0,\"current_authorization_state\":\"valid\",\"authorization_state_hash\":\"59e525f34c6680cf229bcea5f1bec2c8022289571338a8943e6ec9bf3b772a74\",\"consecutive_face_failures\":0,\"warnings\":[],\"expression_hint\":null,\"timestamp\":\"2026-10-14T11:39:10.730595Z\",\"security_state\":\"normal\",\"identity_state\":\"identity_confirmed\",\"reason_code\":\"identity_confirmed\",\"reason\":\"Face descriptor matched server-side (descriptor similarity only; liveness is NOT established), device/session authorization valid, and monitoring connection healthy.\"}"
+  },
+  {
+   "step": "[B] intent created",
+   "ok": true,
+   "detail": "{\"intent_id\":2,\"version\":1,\"status\":\"DRAFT\",\"uses\":0,\"integrity_ok\":true,\"body\":{\"schema_version\":2,\"intent_id\":2,\"version\":1,\"owner_user_id\":4,\"sender\":\"analyst3c0250\",\"purpose_code\":\"CASE_INVESTIGATION\",\"purpose_statement\":\"Investigate suspected card-testing fraud for the case\",\"business_reference\":\"CASE-623224\",\"resource\":\"vault:customer-records\",\"operations\":[\"decrypt\",\"encrypt\"],\"data_scope\":{\"classification\":\"CONFIDENTIAL\",\"max_bytes\":4096,\"max_uses\":8},\"session_id\":\"sess_7d94499ad3e639cbedc6afcd1fc7184a\",\"device_id\":\"dev_b4e59dc92fec9c0dbce1a4a9f9d9cdfa\",\"valid_from\":\"2026-10-14T11:38:10Z\",\"valid_until\":\"2026-10-14T13:39:10Z\",\"evidence_refs\":[{\"kind\":\"CASE\",\"ref\":\"CASE-623224\"}],\"required_approvals\":1},\"body_hash\":\"f9fd13f3111125cf2851d504135cdc1341fc3be1100f093e1b619788b08ed4e4\",\"approvals\":[],\"required_approvals\":1,\"owner_user_id\":4}"
+  },
+  {
+   "step": "[B] intent validated -> pending approval",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] unapproved intent cannot obtain a PERMIT",
+   "ok": true,
+   "detail": "[{\"code\": \"INTENT_NOT_APPROVED\", \"severity\": \"REQUIRES\", \"detail\": \"intent is pending_approval\", \"requires\": \"APPROVAL\"}, {\"code\": \"RISK_LOW\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] requester cannot approve own intent",
+   "ok": true,
+   "detail": "{\"detail\":\"FORBIDDEN\"}"
+  },
+  {
+   "step": "[B] admin approves",
+   "ok": true,
+   "detail": "{\"intent_id\":2,\"version\":1,\"status\":\"APPROVED\",\"uses\":0,\"integrity_ok\":true,\"body\":{\"schema_version\":2,\"intent_id\":2,\"version\":1,\"owner_user_id\":4,\"sender\":\"analyst3c0250\",\"purpose_code\":\"CASE_INVESTIGATION\",\"purpose_statement\":\"Investigate suspected card-testing fraud for the case\",\"business_reference\":\"CASE-623224\",\"resource\":\"vault:customer-records\",\"operations\":[\"decrypt\",\"encrypt\"],\"data_scope\":{\"classification\":\"CONFIDENTIAL\",\"max_bytes\":4096,\"max_uses\":8},\"session_id\":\"sess_7d94499ad3e639cbedc6afcd1fc7184a\",\"device_id\":\"dev_b4e59dc92fec9c0dbce1a4a9f9d9cdfa\",\"valid_from\":\"2026-10-14T11:38:10Z\",\"valid_until\":\"2026-10-14T13:39:10Z\",\"evidence_refs\":[{\"kind\":\"CASE\",\"ref\":\"CASE-623224\"}],\"required_approvals\":1},\"body_hash\":\"f9fd13f3111125cf2851d504135cdc1341fc3be1100f093e1b619788b08ed4e4\",\"approvals\":[{\"approver_id\":1,\"verdict\":\"APPROVE\",\"at\":1791977951}],\"required_approvals\":1,\"owner_user_id\":4}"
+  },
+  {
+   "step": "[B] intent APPROVED",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] PERMIT before state change",
+   "ok": true,
+   "detail": "[{\"code\": \"RISK_LOW\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] admin closes the case",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] context rejected after evidence changed",
+   "ok": true,
+   "detail": "{\"detail\":\"AUTHORIZATION_CHANGED\"}"
+  },
+  {
+   "step": "[B] new decision denied while case is closed",
+   "ok": true,
+   "detail": "[{\"code\": \"CASE_CLOSED\", \"severity\": \"VIOLATION\", \"detail\": \"supporting business case is closed\", \"requires\": null}, {\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] case reopened -> fresh decision PERMIT or risk-gated (never stale)",
+   "ok": true,
+   "detail": "[{\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] fresh context works after reauthorization",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "[B] purpose drift denied",
+   "ok": true,
+   "detail": "[{\"code\": \"PURPOSE_DRIFT\", \"severity\": \"VIOLATION\", \"detail\": \"requested purpose differs from the approved purpose\", \"requires\": null}, {\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] resource drift denied",
+   "ok": true,
+   "detail": "[{\"code\": \"RESOURCE_DRIFT\", \"severity\": \"VIOLATION\", \"detail\": \"requested resource differs from the approved resource\", \"requires\": null}, {\"code\": \"RISK_HIGH\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}, {\"code\": \"RISK_GATE_DENIED\", \"severity\": \"VIOLATION\", \"detail\": \"contextual risk exceeds the permitted threshold\", \"requires\": null}]"
+  },
+  {
+   "step": "[B] scope (bytes) drift denied",
+   "ok": true,
+   "detail": "[{\"code\": \"SCOPE_EXCEEDED\", \"severity\": \"VIOLATION\", \"detail\": \"requested data volume exceeds the approved scope\", \"requires\": null}, {\"code\": \"RISK_MEDIUM\", \"severity\": \"SIGNAL\", \"detail\": \"contextual risk signal\", \"requires\": null}]"
+  },
+  {
+   "step": "audit chain verifies (keyed MAC, head, sink)",
+   "ok": true,
+   "detail": "{\"valid\": true, \"first_invalid_index\": null, \"reason\": null, \"security_state\": \"normal\", \"checks\": {\"genesis\": true, \"sequence\": true, \"chain_continuity\": true, \"mac_verification\": true, \"required_fields\": true, \"chronological_order\": true, \"head_anchor\": true, \"secondary_sink\": true}, \"checked_entries\": 85}"
+  },
+  {
+   "step": "audit has >= 25 entries",
+   "ok": true,
+   "detail": "85"
+  },
+  {
+   "step": "audit log contains no plaintext/passwords",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "step": "a regular user cannot read the audit log",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "time": "2026-10-14T11:39:12.403989+00:00"
+}

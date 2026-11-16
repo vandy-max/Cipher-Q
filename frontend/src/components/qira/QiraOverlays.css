@@ -1,0 +1,83 @@
+/*
+ * QIRA overlays. Every overlay is hidden by default and shown by a data attribute
+ * on the sprite root (data-fx="cover shield ..."), so React never re-renders for them.
+ * Positions are percentages of the sprite FRAME the overlay lives in, so they follow
+ * the character as it moves and scales.
+ */
+
+.qira-ov { position: absolute; pointer-events: none; opacity: 0; transition: opacity 180ms ease-out, transform 320ms cubic-bezier(.2,.9,.3,1.2); }
+
+/* ---- cover wings (processing frame = eyes closed) ----------------------------- */
+.qira-wings { position: absolute; inset: 0; pointer-events: none; }
+.qira-wing { position: absolute; width: 30%; opacity: 0; will-change: transform, opacity;
+  transition: transform 380ms cubic-bezier(.2,.9,.3,1.15), opacity 160ms ease-out; }
+.qira-wing-svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 2px 3px rgba(5,10,30,.55)); }
+/* rest: tucked low at the sides */
+.qira-wing-l { left: 4%;  top: 52%; transform: rotate(-38deg) translateY(30%); transform-origin: 50% 100%; }
+.qira-wing-r { right: 4%; top: 52%; transform: rotate(38deg)  translateY(30%); transform-origin: 50% 100%; }
+/* covering: both wings rise and meet in front of the eyes */
+[data-fx~="cover"] .qira-wing { opacity: 1; }
+[data-fx~="cover"] .qira-wing-l { left: 17%;  top: 10%; transform: rotate(18deg)  translateY(0); }
+[data-fx~="cover"] .qira-wing-r { right: 17%; top: 10%; transform: rotate(-18deg) translateY(0); }
+[data-sprite="processing"]:not([data-fx~="cover"]) .qira-wing { opacity: 0; }
+
+/* ---- helmet (typing frame) ----------------------------------------------------- */
+.qira-helmet { position: absolute; left: 25%; top: -5%; width: 50%; opacity: 0; transform: translateY(-14px) rotate(-6deg); transition: opacity 220ms ease-out, transform 360ms cubic-bezier(.2,.9,.3,1.25); filter: drop-shadow(0 2px 2px rgba(0,0,0,.4)); pointer-events: none; }
+[data-fx~="helmet"] .qira-helmet { opacity: 1; transform: translateY(0) rotate(0); }
+
+/* ---- quantum circuit + nodes -------------------------------------------------- */
+.qira-quantum { position: absolute; right: -6%; top: -14%; width: 40%; opacity: 0; transition: opacity 240ms ease-out; pointer-events: none; filter: drop-shadow(0 0 6px rgba(99,247,255,.45)); }
+[data-fx~="quantum"] .qira-quantum { opacity: 1; animation: qira-float 4.5s ease-in-out infinite; }
+.qira-node { transform-box: fill-box; transform-origin: center; }
+[data-fx~="quantum"] .qira-node-a { animation: qira-node 1.6s ease-in-out infinite; }
+[data-fx~="quantum"] .qira-node-b { animation: qira-node 1.6s ease-in-out .35s infinite; }
+[data-fx~="quantum"] .qira-node-c { animation: qira-node 1.6s ease-in-out .7s infinite; }
+
+/* ---- shield badge ---------------------------------------------------------------- */
+.qira-shield { position: absolute; left: -2%; top: 8%; width: 17%; opacity: 0; transform: scale(.6); transition: opacity 220ms ease-out, transform 320ms cubic-bezier(.2,.9,.3,1.3); pointer-events: none; filter: drop-shadow(0 0 6px rgba(99,247,255,.6)); }
+[data-fx~="shield"] .qira-shield { opacity: 1; transform: scale(1); }
+[data-fx~="protect"] .qira-shield { opacity: 0; }
+
+/* ---- laptop screen glow (monitoring OFF) ----------------------------------------- */
+.qira-laptop-glow { position: absolute; left: 3%; top: 56%; width: 46%; height: 26%; border-radius: 8px; opacity: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(99,247,255,.55), rgba(99,247,255,0)); mix-blend-mode: screen; transition: opacity 240ms; }
+[data-fx~="laptopGlow"] .qira-laptop-glow { opacity: 1; animation: qira-screen 3.2s ease-in-out infinite; }
+
+/* ---- sparkles --------------------------------------------------------------------- */
+.qira-sparkles { position: absolute; inset: -8% -6%; pointer-events: none; opacity: 0; }
+[data-fx~="sparkles"] .qira-sparkles { opacity: 1; }
+.qira-spark { position: absolute; width: 9px; height: 9px; background: #ffe9a8; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); opacity: 0; }
+[data-fx~="sparkles"] .qira-spark { animation: qira-spark 1.5s ease-out infinite; }
+.qira-spark-0 { left: 8%; top: 22%; } .qira-spark-1 { right: 8%; top: 18%; animation-delay: .2s !important; }
+.qira-spark-2 { left: 16%; top: 4%; animation-delay: .4s !important; } .qira-spark-3 { right: 20%; top: 2%; animation-delay: .6s !important; }
+.qira-spark-4 { left: 2%; top: 46%; animation-delay: .8s !important; } .qira-spark-5 { right: 2%; top: 44%; animation-delay: 1s !important; }
+
+/* ---- scan ring -------------------------------------------------------------------- */
+.qira-scan { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 200ms; }
+[data-fx~="scan"] .qira-scan { opacity: 1; }
+.qira-scan-ring { position: absolute; left: 20%; right: 20%; top: 6%; height: 50%; border-radius: 50%; border: 1.5px solid rgba(99,247,255,.7); box-shadow: 0 0 10px rgba(99,247,255,.45), inset 0 0 8px rgba(99,247,255,.25); }
+[data-fx~="scan"] .qira-scan-ring { animation: qira-ring 1.8s ease-in-out infinite; }
+.qira-scan-line { position: absolute; left: 24%; right: 24%; height: 2px; top: 12%; background: linear-gradient(90deg, transparent, rgba(99,247,255,.95), transparent); }
+[data-fx~="scan"] .qira-scan-line { animation: qira-sweep 1.6s ease-in-out infinite; }
+
+@keyframes qira-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes qira-node { 0%,100% { transform: scale(.75); opacity: .55; } 50% { transform: scale(1.35); opacity: 1; } }
+@keyframes qira-screen { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes qira-spark { 0% { opacity: 0; transform: scale(.3) rotate(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.25) rotate(60deg) translateY(-10px); } }
+@keyframes qira-ring { 0%,100% { transform: scale(.97); opacity: .65; } 50% { transform: scale(1.03); opacity: 1; } }
+@keyframes qira-sweep { 0% { top: 10%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 52%; opacity: 0; } }
+
+/* reduced motion: keep the STATE visible (overlays still show) but stop all looping motion */
+@media (prefers-reduced-motion: reduce) {
+  .qira-ov, .qira-wing, .qira-helmet, .qira-shield, .qira-quantum { transition: none !important; animation: none !important; }
+  [data-fx~="quantum"] .qira-quantum, [data-fx~="quantum"] .qira-node,
+  [data-fx~="laptopGlow"] .qira-laptop-glow, [data-fx~="sparkles"] .qira-spark, [data-fx~="scan"] .qira-scan-ring, [data-fx~="scan"] .qira-scan-line { animation: none !important; }
+  [data-fx~="sparkles"] .qira-spark { opacity: .9; }
+  [data-fx~="scan"] .qira-scan-line { top: 30%; opacity: .8; }
+}
+
+/* speech-bubble "working" dots (processing messages) */
+.qira-dots i { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .35; animation: qira-dot 1.2s ease-in-out infinite; }
+.qira-dots i:nth-child(2) { animation-delay: .2s; } .qira-dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes qira-dot { 0%,80%,100% { opacity: .25; } 40% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .qira-dots i { animation: none; opacity: .7; } }
